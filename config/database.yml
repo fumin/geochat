@@ -19,8 +19,8 @@ development:
   encoding: unicode
   database: geo_chat_development
   pool: 5
-  username: geo_chat
-  password:
+  # username: geo_chat
+  # password:
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -48,13 +48,15 @@ test:
   encoding: unicode
   database: geo_chat_test
   pool: 5
-  username: geo_chat
-  password:
+  # username: geo_chat
+  # password:
 
 production:
   adapter: postgresql
   encoding: unicode
-  database: geo_chat_production
+  database: geochat
   pool: 5
-  username: geo_chat
-  password:
+  username: adminycqbhbc
+  password: c7jWTyxDvhgm
+  host: <%= ENV[OPENSHIFT_POSTGRESQL_DB_HOST] %>
+  port: <%= ENV[OPENSHIFT_POSTGRESQL_DB_PORT] %>
