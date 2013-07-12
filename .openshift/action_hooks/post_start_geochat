@@ -1,3 +1,0 @@
-# Fix benign passenger error with prespawn
-# https://www.openshift.com/forums/openshift/passenger-error-0
-curl http://geochat-awaw.rhcloud.com/ -o /dev/null
