@@ -58,5 +58,5 @@ production:
   pool: 5
   username: adminycqbhbc
   password: c7jWTyxDvhgm
-  host: <%= ENV[OPENSHIFT_POSTGRESQL_DB_HOST] %>
-  port: <%= ENV[OPENSHIFT_POSTGRESQL_DB_PORT] %>
+  host: <%= ENV["OPENSHIFT_POSTGRESQL_DB_HOST"] %>
+  port: <%= ENV["OPENSHIFT_POSTGRESQL_DB_PORT"] %>
