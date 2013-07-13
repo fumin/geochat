@@ -14,6 +14,7 @@ class MainController < ApplicationController
     100.times { |i|
       sse.write({ i: i }, event: 'custom')
       sse.write({ time: Time.now })
+      puts ">>>>>>>>>>>>>>>>>>>>>> #{i}"
       sleep(3)
     }
     sse.close
