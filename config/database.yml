@@ -51,11 +51,15 @@ test:
   # username: geo_chat
   # password:
 
+# -----------------------------------------------
+# We set the database pool size to 1, since we're using passenger in openshift,
+# which creates a separate Rails process for every request.
+#
 production:
   adapter: postgresql
   encoding: unicode
   database: geochat
-  pool: 5
+  pool: 1
   username: adminycqbhbc
   password: c7jWTyxDvhgm
   host: <%= ENV["OPENSHIFT_POSTGRESQL_DB_HOST"] %>
