@@ -2,6 +2,11 @@ worker_processes 3
 timeout 3000000000
 preload_app true
 
+Rainbows! do
+  use :ThreadSpawn
+  worker_connections 100
+end
+
 before_fork do |server, worker|
 
   Signal.trap 'TERM' do

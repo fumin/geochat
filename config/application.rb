@@ -19,5 +19,10 @@ module GeoChat
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+
+    # For streaming to work with a threaded server such as Rainbows! and Puma
+    config.preload_frameworks = true
+    config.allow_concurrency = true
+
   end
 end

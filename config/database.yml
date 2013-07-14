@@ -59,7 +59,7 @@ production:
   adapter: postgresql
   encoding: unicode
   database: geochat
-  pool: 1
+  pool: 5
   username: adminycqbhbc
   password: c7jWTyxDvhgm
   host: <%= ENV["OPENSHIFT_POSTGRESQL_DB_HOST"] %>

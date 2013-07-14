@@ -26,4 +26,13 @@ GeoChat::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+
+  # ---------------------------------------------
+  # Custom configs
+
+  # Show Rails logs when running in Unicorn
+  config.logger = Logger.new(STDOUT)
+  config.logger.level = Logger.const_get('DEBUG')
+
 end

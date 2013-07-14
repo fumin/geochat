@@ -4,7 +4,7 @@ if (window.location.pathname == "/") {
     $("<div/>", {text: str}).appendTo($("#hello"));
   }
 
-  var source = new EventSource("main/stream");
+  var source = new EventSource("stream");
   source.addEventListener("message", function(e){
     var data = JSON.parse(e.data);
     var str = "time: " + data.time;
@@ -13,7 +13,7 @@ if (window.location.pathname == "/") {
   }, false);
   source.addEventListener("custom", function(e){
     var data = JSON.parse(e.data);
-    var str = "custom: " + data.i
+    var str = "custom: " + data.msg
     console.log(data);
     log(str);
   }, false);

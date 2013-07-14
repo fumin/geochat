@@ -3,9 +3,6 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-# Heroku stuff
-gem 'rails_12factor', group: :production
-
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -39,7 +36,8 @@ end
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-gem 'unicorn'
+# gem 'unicorn'
+gem 'rainbows'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
@@ -50,4 +48,4 @@ gem 'unicorn'
 # ----------------------------------------------------------
 # Custom gems
 gem 'pr_geohash'
-gem 'redis-objects'
+gem 'redis'

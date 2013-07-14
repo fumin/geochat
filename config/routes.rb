@@ -54,10 +54,7 @@ GeoChat::Application.routes.draw do
   #     resources :products
   #   end
 
-  resources :main do
-    collection do
-      get :stream
-    end
-  end
+  get  :stream, to: "main#stream"
+  post :say,    to: "main#say"
 
 end
