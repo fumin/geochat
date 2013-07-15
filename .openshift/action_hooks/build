@@ -1,0 +1,15 @@
+#!/bin/bash
+source $OPENSHIFT_DATA_DIR/.bash_profile
+
+cd $OPENSHIFT_REPO_DIR
+
+export RACK_ENV=production
+
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo `which bundle`
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+echo "!!!!!!!!!!!!!!!!!!!!!!!!!!!"
+bundle install
+
+rake assets:precompile
