@@ -10,4 +10,4 @@ cd $OPENSHIFT_REPO_DIR
 
 export RACK_ENV=production
 
-bundle exec "rainbows -o $OPENSHIFT_DIY_IP -p $OPENSHIFT_DIY_PORT -c config/rainbows.rb"
+bundle exec "rainbows -o $OPENSHIFT_DIY_IP -p $OPENSHIFT_DIY_PORT -c config/rainbows.rb -D"
