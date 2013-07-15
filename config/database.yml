@@ -60,7 +60,7 @@ production:
   encoding: unicode
   database: geochat
   pool: 5
-  username: adminycqbhbc
-  password: c7jWTyxDvhgm
+  username: adminmljeqah
+  password: aQhZKrwVvzp4
   host: <%= ENV["OPENSHIFT_POSTGRESQL_DB_HOST"] %>
   port: <%= ENV["OPENSHIFT_POSTGRESQL_DB_PORT"] %>

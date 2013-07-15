@@ -1,0 +1,7 @@
+source $OPENSHIFT_DATA_DIR/.bash_profile
+
+cd $OPENSHIFT_REPO_DIR
+
+export RACK_ENV=production
+
+bundle exec "rainbows -o $OPENSHIFT_RUBY_IP -p $OPENSHIFT_RUBY_PORT -c config/rainbows.rb"
