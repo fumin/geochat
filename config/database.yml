@@ -17,7 +17,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: geo_chat_development
+  database: geochat_development
   pool: 5
   # username: geo_chat
   # password:
@@ -46,7 +46,7 @@ development:
 test:
   adapter: postgresql
   encoding: unicode
-  database: geo_chat_test
+  database: geochat_test
   pool: 5
   # username: geo_chat
   # password:

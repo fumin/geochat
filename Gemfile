@@ -38,6 +38,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # Use unicorn as the app server
 # gem 'unicorn'
 gem 'rainbows'
+gem 'sendfile'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
