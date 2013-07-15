@@ -83,6 +83,5 @@ GeoChat::Application.configure do
 
   # Use Rainbows! sendfile to serve static files
   config.serve_static_assets = true
-  config.action_dispatch.x_sendfile_header = "X-Sendfile"
 
 end
