@@ -13,9 +13,9 @@ source $OPENSHIFT_DATA_DIR.bash_profile
 
 source $OPENSHIFT_CARTRIDGE_SDK_BASH
 
-if [ -z "$(ps -ef | grep 'rainbows master' | grep -v grep)" ]
+if [ -z "$(ps -ef | grep zbatery | grep -v grep)" ]
 then
     client_result "Application is already stopped"
 else
-    kill `ps -ef | grep 'rainbows master' | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
+    kill `ps -ef | grep zbatery | grep -v grep | awk '{ print $2 }'` > /dev/null 2>&1
 fi
