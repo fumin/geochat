@@ -24,5 +24,11 @@ module GeoChat
     config.preload_frameworks = true
     config.allow_concurrency = true
 
+    config.assets.paths += [
+      "app/assets/bootstrap/js",
+      "app/assets/bootstrap/css",
+      "app/assets/bootstrap/img"
+      ].map{ |subdir| Rails.root.join(subdir) }
+
   end
 end

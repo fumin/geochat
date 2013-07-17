@@ -49,3 +49,4 @@ gem 'zbatery'
 # Custom gems
 gem 'pr_geohash'
 gem 'redis'
+gem 'haml'

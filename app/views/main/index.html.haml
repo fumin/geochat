@@ -1,0 +1,7 @@
+%h1 Geo Chat!
+= form_tag say_path, id: :say_form, class: "form-inline" do
+  = text_field_tag :msg, nil,
+                   autofocus: true,
+                   placeholder: "What's on your mind?"
+  = submit_tag 'GO', class: "btn"
+#chat-space

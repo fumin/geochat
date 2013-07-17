@@ -6,8 +6,12 @@ class MainController < ApplicationController
   end
 
   def say
-    msg = params.require(:msg)
-    data = { msg: msg }.to_json
+    msg       = params.require(:msg)
+    latitude  = params.require(:latitude)
+    longitude = params.require(:longitude)
+    data = { msg:       msg,
+             latitude:  latitude,
+             longitude: longitude }.to_json
 
     redis = Redis.new(url: REDIS_URL)
     redis.zrange(GEO_REDIS, 0, -1).each do |username|
