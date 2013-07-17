@@ -5,4 +5,5 @@ REDIS_URL = if Rails.env == 'production'
               nil
             end
 
-MainController
+# Redis keys
+GEO_REDIS = "geo"
