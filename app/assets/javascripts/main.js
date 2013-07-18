@@ -52,7 +52,7 @@ if (window.location.pathname == "/") {
             console.log(data);
           },
           error: function(jqXHR, textStatus, errorThrown){
-            alert(errorThrown);
+            console.log(errorThrown);
           }});
       }, 
       "We need your location to send your message to people around you!"
