@@ -1,61 +1,64 @@
 var index_page_init = function(){
 if (window.location.pathname == "/") {
 
-  // Server sent events
-  log = function(str) {
-    $("<div/>", {text: str}).prependTo($("#chat-space"));
-  }
+  // Listen for Server Sent Events
+  getCurrentPosition(function(position){
+    var log = function(str) {
+      $("<div/>", {text: str}).prependTo($("#chat-space"));
+    }
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    var path      = "stream?latitude=" + latitude + "&longitude=" + longitude;
 
-  var source = new EventSource("stream");
-  source.addEventListener("message", function(e){
-    var data = JSON.parse(e.data);
-    var str = "time: " + data.time;
-    console.log(data);
-    log(str);
-  }, false);
-  source.addEventListener("custom", function(e){
-    var data = JSON.parse(e.data);
-    var str = "msg: " + data.msg +
-              ", latitude: " + data.latitude +
-              ", longitude: " + data.longitude;
-    console.log(data);
-    log(str);
-  }, false);
+    // Here we need to check for typeof(source) and make source a
+    // global variable because turbolinks interferes with document.ready
+    // causing duplicate EventSources to be created.
+    if (typeof source == "undefined") {
+      source = new EventSource(path);
+      source.addEventListener("message", function(e){
+        var data = JSON.parse(e.data);
+        var str = "time: " + data.time;
+        console.log(data);
+        log(str);
+      }, false);
+      source.addEventListener("custom", function(e){
+        var data = JSON.parse(e.data);
+        var str = "msg: " + data.msg +
+                  ", latitude: " + data.latitude +
+                  ", longitude: " + data.longitude;
+        console.log(data);
+        log(str);
+      }, false);
+    }
+  },
+  "We need your location to let you know what people around the area are saying."
+  );
 
   // Form handler
   $("#say_form").submit(function(){
-    navigator.geolocation.getCurrentPosition(function(position){
-      var latitude  = position.coords.latitude;
-      var longitude = position.coords.longitude;
-      var url       = $("#say_form").attr("action");
-      var data      = {
-        msg: $("#msg").val(),
-        latitude: position.coords.latitude,
-        longitude: position.coords.longitude
-      };
-      jQuery.ajax({
-        type: "POST",
-        url: url,
-        data: data,
-        success: function(data){
-          console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown){
-          alert(jqXHR);
-        }});
-    }, 
-    function(geo_error){
-      if (1 == geo_error.code) { // Permission denied
-        alert("We need your location to send your message to people around you!");
-      } else {
-        alert("Oops, location unavailable, please check your browser settings or try again.");
-      }
-    },
-    {maximumAge: 75000} // 75 seconds
-    ); // getCurrentPosition
-
+    getCurrentPosition(function(position){
+        var url       = $("#say_form").attr("action");
+        var data      = {
+          msg:       $("#say_form > #msg").val(),
+          latitude:  position.coords.latitude,
+          longitude: position.coords.longitude,
+          precision: $("#say_form > #precision").val()
+        };
+        jQuery.ajax({
+          type: "POST",
+          url: url,
+          data: data,
+          success: function(data){
+            console.log(data);
+          },
+          error: function(jqXHR, textStatus, errorThrown){
+            alert(errorThrown);
+          }});
+      }, 
+      "We need your location to send your message to people around you!"
+    );
     return false; // disable the default form submission action
-  }); // $("#say_form").submit(function(){
+  });
 
 } // if (window.location.pathname == "/") {
 

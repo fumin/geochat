@@ -1,7 +1,19 @@
 %h1 Geo Chat!
-= form_tag say_path, id: :say_form, class: "form-inline" do
+= form_tag say_path, id: :say_form do
   = text_field_tag :msg, nil,
                    autofocus: true,
                    placeholder: "What's on your mind?"
+
+  = label_tag  "precision", "broadcast area"
+  = select_tag "precision",
+               options_for_select({ "2500 kM"    => 1,
+                                    "640 kM"     => 2,
+                                    "78 kM"      => 3,
+                                    "20 kM"      => 4,
+                                    "2.4 kM"     => 5,
+                                    "610 meters" => 6,
+                                    "76 meters"  => 7,
+                                    "19 meters"  => 8}, 5)
+  %br
   = submit_tag 'GO', class: "btn"
 #chat-space
