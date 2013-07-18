@@ -1,4 +1,3 @@
-var index_page_init = function(){
 if (window.location.pathname == "/") {
 
   // Listen for Server Sent Events
@@ -33,6 +32,10 @@ if (window.location.pathname == "/") {
   },
   "We need your location to let you know what people around the area are saying."
   );
+}
+
+var index_page_init = function(){
+if (window.location.pathname == "/") {
 
   // Form handler
   $("#say_form").submit(function(){
